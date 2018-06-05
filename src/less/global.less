@@ -94,6 +94,7 @@ a {
 		color: inherit !important;
 		fill: inherit !important;
 		border-bottom: 0;
+		text-decoration: none;
 		cursor: inherit;
 	}
 
@@ -105,10 +106,6 @@ a {
 .link {
 	&--dashed {
 		border-bottom-style: dashed;
-	}
-
-	&--dotted  {
-		border-bottom-style: dotted;
 	}
 }
 
@@ -132,9 +129,13 @@ a {
 	border-radius: @radius;
 	cursor: pointer;
 	transition: @duration @timing-function;
-	transition-property: background-color, border-color;
+	transition-property: box-shadow, border-color, background-color;
 
-	&:hover {
+	&:focus {
+		.focus(fade(@button-primary, 50%));
+	}
+
+	&:not([disabled]):hover {
 		background-color: darken(@button-primary, 10%);
 	}
 
@@ -156,7 +157,11 @@ a {
 		background-color: transparent;
 		border-color: fade(@dark-primary, 30%) !important;
 
-		&:hover {
+		&:focus {
+			.focus(fade(@dark-primary, 20%));
+		}
+
+		&:not([disabled]):hover {
 			background-color: transparent;
 			border-color: fade(@dark-primary, 50%) !important;
 		}
@@ -168,7 +173,11 @@ a {
 		background-color: transparent;
 		border-color: fade(@light-primary, 30%) !important;
 
-		&:hover {
+		&:focus {
+			.focus(fade(@light-primary, 20%));
+		}
+
+		&:not([disabled]):hover {
 			background-color: transparent;
 			border-color: fade(@light-primary, 50%) !important;
 		}
@@ -203,6 +212,10 @@ textarea {
 	font-size: inherit;
 	line-height: inherit;
 	color: inherit;
+
+	&[disabled] {
+		.disabled();
+	}
 }
 
 textarea {
@@ -213,10 +226,6 @@ button,
 select,
 [role="button"] {
 	cursor: pointer;
-
-	&[disabled] {
-		cursor: default;
-	}
 
 	.no-focus &:focus {
 		outline: none;
