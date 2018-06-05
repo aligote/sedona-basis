@@ -79,25 +79,9 @@ h3,
 // Links
 //------------------------------------------------------------------------------
 
-.link(@color) {
-	color: @color;
-	fill: @color;
-	border-bottom: 1px solid fade(@color, 30%);
-}
-
-.link-hover(@color) {
-	color: darken(@color, 15%);
-	fill: darken(@color, 15%);
-	border-bottom-color: fade(darken(@color, 15%), 30%);
-}
-
 a,
 .link {
 	.link(@link-primary);
-	text-decoration: none;
-	cursor: pointer;
-	transition: @duration @timing-function;
-	transition-property: color, fill, border-bottom-color;
 
 	&:hover {
 		.link-hover(@link-primary);
