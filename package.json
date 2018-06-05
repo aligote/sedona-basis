@@ -1,9 +1,9 @@
 {
   "name": "sedona-basis",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.7.0"
+    "sedona-blocks": "^3.10.2"
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
@@ -18,7 +18,7 @@
     "gulp-less": "3.5.0",
     "gulp-sync": "^0.1.4",
     "gulp-typograf": "^3.1.0",
-    "gulp-uglify-es": "^1.0.1",
+    "gulp-uglify-es": "^1.0.4",
     "multipipe": "^2.0.3"
   }
 }
