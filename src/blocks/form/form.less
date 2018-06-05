@@ -154,11 +154,11 @@
 	select {
 		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-hint-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
 
-		padding-right: (@form-control-padding-right * 2 + 8px - @form-control-border-width);
+		padding-right: (@form-control-padding-top * 2 + 24px - @form-control-border-width);
 		background-image: url("data:image/svg+xml, @{icon}"), @form-control-background-image;
 		background-repeat: no-repeat, @form-control-background-repeat;
-		background-position: right (@form-control-padding-right - 5px) top 55%, @form-control-background-position;
-		background-size: 18px 18px, @form-control-background-size;
+		background-position: right (@form-control-padding-top - @form-control-border-width) top 55%, @form-control-background-position;
+		background-size: 24px 24px, @form-control-background-size;
 
 		&::-ms-expand {
 			display: none;
