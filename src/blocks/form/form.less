@@ -21,7 +21,6 @@
 @form-control-hover-border-color: darken(@form-control-border-color, 15%);
 @form-control-hover-background-color: @form-control-background-color;
 
-@form-control-focus-outline-width: 2px;
 @form-control-focus-outline-color: @form-control-border-color;
 @form-control-focus-border-color: @form-control-hover-border-color;
 @form-control-focus-background-color: @form-control-hover-background-color;
@@ -133,25 +132,15 @@
 		transition: @duration @timing-function;
 
 		&:focus {
-			outline: none;
-			box-shadow: 0px 0px 0px @form-control-focus-outline-width @form-control-focus-outline-color;
+			.focus(@form-control-focus-outline-color);
 			border-color: @form-control-focus-border-color;
 			background-color: @form-control-focus-background-color;
-
-			.no-focus & {
-				box-shadow: none;
-			}
 		}
 
 		&:not([disabled]):hover,
 		&:not([disabled]):focus {
 			border-color: @form-control-hover-border-color;
 			background-color: @form-control-hover-background-color;
-		}
-
-		&[disabled] {
-			cursor: not-allowed;
-			opacity: 0.5;
 		}
 	}
 
@@ -183,13 +172,9 @@
 		background-color: @form-control-danger-background-color;
 
 		&:focus {
-			box-shadow: 0px 0px 0px @form-control-focus-outline-width @form-control-danger-focus-outline-color;
+			.focus(@form-control-danger-focus-outline-color);
 			border-color: @form-control-danger-focus-border-color;
 			background-color: @form-control-danger-focus-background-color;
-
-			.no-focus & {
-				box-shadow: none;
-			}
 		}
 
 		&:not([disabled]):hover,
