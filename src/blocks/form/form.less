@@ -142,6 +142,11 @@
 			border-color: @form-control-hover-border-color;
 			background-color: @form-control-hover-background-color;
 		}
+
+		&:not(:focus):invalid {
+			box-shadow: none;
+			outline: none;
+		}
 	}
 
 	input,
