@@ -46,8 +46,8 @@ const paths = {
 				'node_modules/normalize.css/normalize.css'
 			],
 			main: [
-				'node_modules/sedona-blocks/scene/scene.less',
-				'node_modules/sedona-blocks/wysiwyg/wysiwyg.less',
+				'node_modules/sedona-blocks/src/scene/scene.less',
+				'node_modules/sedona-blocks/src/wysiwyg/wysiwyg.less',
 				'src/less/main.less'
 			]
 		},
