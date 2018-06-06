@@ -1,6 +1,11 @@
 // Core
 //------------------------------------------------------------------------------
 
+// Задаем пространство имен
+
+window.sedona = {}
+
+
 // Определяем мобильное устройство
 
 const MOBILE = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
