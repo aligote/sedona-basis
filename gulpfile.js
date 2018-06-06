@@ -47,10 +47,10 @@ const paths = {
 				'node_modules/ion-rangeslider/css/ion.rangeSlider.css'
 			],
 			main: [
-				'node_modules/sedona-blocks/scene/scene.less',
-				'node_modules/sedona-blocks/wysiwyg/wysiwyg.less',
-				'node_modules/sedona-blocks/grid/grid.less',
-				'node_modules/sedona-blocks/form/form.less',
+				'node_modules/sedona-blocks/src/scene/scene.less',
+				'node_modules/sedona-blocks/src/wysiwyg/wysiwyg.less',
+				'node_modules/sedona-blocks/src/grid/grid.less',
+				'node_modules/sedona-blocks/src/form/form.less',
 				'src/less/main.less'
 			]
 		},
