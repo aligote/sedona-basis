@@ -28,17 +28,21 @@ body {
 }
 
 
-// Headers
+// Headings
 //------------------------------------------------------------------------------
 
 h1,
-.h1 {
+h2,
+h3 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-weight: bold;
+	font-family: @font-family-secondary;
+}
+
+h1 {
 	font-size: @font-size-h1;
 	line-height: @line-height-h1;
-	font-family: @font-family-secondary;
 
 	@media (min-width: @grid-breakpoints-md) {
 		font-size: @font-size-h1-larger;
@@ -46,14 +50,9 @@ h1,
 	}
 }
 
-h2,
-.h2 {
-	margin-top: 0;
-	margin-bottom: 0;
-	font-weight: bold;
+h2 {
 	font-size: @font-size-h2;
 	line-height: @line-height-h2;
-	font-family: @font-family-secondary;
 
 	@media (min-width: @grid-breakpoints-md) {
 		font-size: @font-size-h2-larger;
@@ -61,14 +60,9 @@ h2,
 	}
 }
 
-h3,
-.h3 {
-	margin-top: 0;
-	margin-bottom: 0;
-	font-weight: bold;
+h3 {
 	font-size: @font-size-h3;
 	line-height: @line-height-h3;
-	font-family: @font-family-secondary;
 
 	@media (min-width: @grid-breakpoints-md) {
 		font-size: @font-size-h3-larger;
@@ -83,6 +77,10 @@ h3,
 a,
 .link {
 	.link(@link-primary);
+	text-decoration: none;
+	cursor: pointer;
+	transition: @duration @timing-function;
+	transition-property: color, fill, border-bottom-color;
 
 	&:hover {
 		.link-hover(@link-primary);
@@ -145,15 +143,23 @@ a {
 		top: 1px;
 	}
 
-	&--rounded {
-		border-radius: (@line-height / 2 + 6px);
+	&--contour {
+		color: @base-primary !important;
+		fill: @base-primary !important;
+		background-color: transparent;
+		border-color: fade(@base-primary, 30%) !important;
+
+		&:focus {
+			.focus(fade(@base-primary, 20%));
+		}
+
+		&:not([disabled]):hover {
+			background-color: transparent;
+			border-color: fade(@base-primary, 50%) !important;
+		}
 	}
 
-	&--squared {
-		border-radius: @radius;
-	}
-
-	&--dark-contour {
+	&--contour-darken {
 		color: @dark-primary !important;
 		fill: @dark-primary !important;
 		background-color: transparent;
@@ -169,7 +175,7 @@ a {
 		}
 	}
 
-	&--light-contour {
+	&--contour-lighten {
 		color: @light-primary !important;
 		fill: @light-primary !important;
 		background-color: transparent;
