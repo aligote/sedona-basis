@@ -61,9 +61,13 @@
 			background-color: @form-control-hover-background-color;
 		}
 
-		// .file--input.file--droppable + & {
-		// 	border-style: dashed;
-		// }
+		.file--input.file--droppable + & {
+			border-style: dashed;
+		}
+
+		.file--draggable + & {
+			border-style: dashed;
+		}
 
 		.file--input[disabled] + & {
 			.disabled();
@@ -96,13 +100,47 @@
 	padding: 0;
 	margin-right: @form-control-padding-top;
 	width: 0;
-	max-width: calc(~"100% - 24px" - @form-control-padding-top);
+	max-width: ~"calc(100% - 24px - @{form-control-padding-top})";
 
 	li {
 		width: 100%;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+	}
+
+	&--preview {
+		margin-right: 0;
+		margin-bottom: -(@form-control-padding-bottom - 1px);
+		margin-left: (@form-control-padding-top - 1px) - (@form-control-padding-left - 1px);
+		max-width: ~"calc(100% - 24px - ((@{form-control-padding-top} - 1px) - (@{form-control-padding-left} - 1px)))";
+
+		li {
+			width: auto;
+			margin-right: (@form-control-padding-top - 1px);
+			margin-bottom: (@form-control-padding-top - 1px);
+		}
+	}
+}
+
+.file__preview {
+	display: none;
+	width: (@line-height * 3);
+	height: (@line-height * 3);
+	border-radius: (@form-control-border-radius / 2);
+	background-color: @form-control-border-color;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.file__field--preview & {
+		display: block;
+	}
+}
+
+.file__name {
+	.file__field--preview & {
+		display: none;
 	}
 }
 
