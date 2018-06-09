@@ -1,6 +1,13 @@
 // File
 //------------------------------------------------------------------------------
 
+@file-preview-width: (@line-height * 3);
+@file-preview-height: (@line-height * 3);
+
+
+// Style
+//------------------------------------------------------------------------------
+
 .file {
 	&--input {
 		position: absolute !important;
@@ -125,8 +132,8 @@
 
 .file__preview {
 	display: none;
-	width: (@line-height * 3);
-	height: (@line-height * 3);
+	width: @file-preview-width;
+	height: @file-preview-height;
 	border-radius: (@form-control-border-radius / 2);
 	background-color: @form-control-border-color;
 	background-position: 50% 50%;
