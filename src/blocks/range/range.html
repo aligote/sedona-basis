@@ -21,7 +21,7 @@
 		<div class="form__fields">
 			<div class="form__line">
 				<div class="form__control" style="width: 100%;">
-					<input type="text" class="range" id="single" name="single" data-hide-min-max="true" data-hide-from-to="true" data-min="0" data-max="5">
+					<input type="text" class="range" id="single" name="single" data-min="0" data-max="10">
 				</div>
 			</div>
 		</div>
@@ -35,9 +35,7 @@
 		<div class="form__fields">
 			<div class="form__line">
 				<div class="form__control" style="width: 100%;">
-					<input type="text" class="range" id="double" name="double" data-type="double" data-hide-min-max="true" data-hide-from-to="true" data-from="30" data-to="80" data-drag-interval="true" data-from-input-name="dcs" data-to-input-name="asd">
-					<input type="hidden" name="dcs">
-					<input type="hidden" name="asd">
+					<input type="text" class="range" id="double" name="double" data-type="double" data-hide-min-max="true" data-min="100" data-max="1000" data-from="300" data-to="800" data-drag-interval="true">
 				</div>
 			</div>
 		</div>
@@ -50,12 +48,12 @@
 
 		<div class="form__fields">
 			<div class="form__line">
-				<div class="form__control" style="flex-grow: 1;">
-					<input type="text" class="range" id="single" name="single" data-hide-min-max="true" data-hide-from-to="true" data-from-input-name="uio" data-from="55">
-				</div>
-
 				<div class="form__control" style="width: 67px;">
 					<input type="text" name="uio" style="text-align: center;" readonly>
+				</div>
+
+				<div class="form__control" style="flex-grow: 1;">
+					<input type="text" class="range" id="single" name="single" data-hide-min-max="true" data-hide-from-to="true" data-from-input-name="uio" data-from="55">
 				</div>
 			</div>
 		</div>
