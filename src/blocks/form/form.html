@@ -172,11 +172,54 @@
 		<div class="form__fields">
 			<div class="form__line">
 				<div class="form__control" style="width: 81px;">
-					<input type="text" id="series" name="series" minlength="4" maxlength="4" placeholder="0000">
+					<input type="text" id="series" name="series" minlength="4" maxlength="4" placeholder="0000" style="text-align: center;">
 				</div>
 
 				<div class="form__control" style="width: 98px;">
-					<input type="text" name="number" minlength="6" maxlength="6" placeholder="000000">
+					<input type="text" name="number" minlength="6" maxlength="6" placeholder="000000" style="text-align: center;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form__group">
+		<div class="form__label" style="width: 30%;">
+			<label for="summ">Сумма</label>
+		</div>
+
+		<div class="form__fields">
+			<div class="form__line">
+				<div class="form__control" style="width: 179px;">
+					<span class="form__after" style="pointer-events: none;">₽</span>
+					<input type="text" id="summ" name="summ" placeholder="0">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form__group">
+		<div class="form__label" style="width: 30%;">
+			<label for="from">Откуда и куда</label>
+		</div>
+
+		<div class="form__fields">
+			<div class="form__line">
+				<div class="form__control" style="width: 100%;">
+					<span class="form__before" style="pointer-events: none;">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M2.5 19h19v2h-19zm19.57-9.36c-.21-.8-1.04-1.28-1.84-1.06L14.92 10l-6.9-6.43-1.93.51 4.14 7.17-4.97 1.33-1.97-1.54-1.45.39 1.82 3.16.77 1.33 1.6-.43 5.31-1.42 4.35-1.16L21 11.49c.81-.23 1.28-1.05 1.07-1.85z"/>
+						</svg>
+					</span>
+					<input type="text" id="from" name="from">
+				</div>
+
+				<div class="form__control" style="width: 100%;">
+					<span class="form__before" style="pointer-events: none;">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path d="M2.5 19h19v2h-19zm7.18-5.73l4.35 1.16 5.31 1.42c.8.21 1.62-.26 1.84-1.06.21-.8-.26-1.62-1.06-1.84l-5.31-1.42-2.76-9.02L10.12 2v8.28L5.15 8.95l-.93-2.32-1.45-.39v5.17l1.6.43 5.31 1.43z"/>
+						</svg>
+					</span>
+					<input type="text" name="to">
 				</div>
 			</div>
 		</div>
