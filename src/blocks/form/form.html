@@ -9,9 +9,7 @@
 				<div class="form__control" style="width: 100%;">
 					<input type="text" id="name" name="name" placeholder="Иван" required autofocus>
 				</div>
-			</div>
 
-			<div class="form__line">
 				<div class="form__control" style="width: 100%;">
 					<input type="text" name="surname" placeholder="Иванов" required>
 				</div>
@@ -53,33 +51,36 @@
 
 	<div class="form__group">
 		<div class="form__label" style="width: 30%;">
-			Опции
+			Чекбоксы
 		</div>
 
 		<div class="form__fields">
 			<div class="form__line">
-				<div class="form__control">
+				<div class="form__control" style="width: 100%;">
 					<label class="form__checkbox">
 						<input type="checkbox" checked>
 						<span>Повысить ставку по вкладу</span>
 					</label>
 				</div>
-			</div>
 
-			<div class="form__line">
-				<div class="form__control">
+				<div class="form__control" style="width: 100%;">
 					<label class="form__checkbox">
 						<input type="checkbox">
 						<span>Оставлять проценты на вкладе</span>
 					</label>
 				</div>
-			</div>
 
-			<div class="form__line">
-				<div class="form__control">
+				<div class="form__control" style="width: 100%;">
 					<label class="form__checkbox">
-						<input type="checkbox">
+						<input type="checkbox" disabled>
 						<span>Учесть бонус от банка</span>
+					</label>
+				</div>
+
+				<div class="form__control" style="width: 100%;">
+					<label class="form__checkbox">
+						<input type="checkbox" checked disabled>
+						<span>Любое количество валютных счетов</span>
 					</label>
 				</div>
 			</div>
@@ -113,6 +114,37 @@
 			<div class="form__line">
 				<div class="form__control" style="width: 100%;">
 					<input type="text" id="system" name="system" value="Солнечная" disabled>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="form__group">
+		<div class="form__label" style="width: 30%;">
+			Радиобаттоны
+		</div>
+
+		<div class="form__fields">
+			<div class="form__line">
+				<div class="form__control" style="width: 100%;">
+					<label class="form__radio">
+						<input type="radio" name="radio" checked>
+						<span>Повысить ставку по вкладу</span>
+					</label>
+				</div>
+
+				<div class="form__control" style="width: 100%;">
+					<label class="form__radio">
+						<input type="radio" name="radio">
+						<span>Оставлять проценты на вкладе</span>
+					</label>
+				</div>
+
+				<div class="form__control" style="width: 100%;">
+					<label class="form__radio">
+						<input type="radio" name="radio" disabled>
+						<span>Учесть бонус от банка</span>
+					</label>
 				</div>
 			</div>
 		</div>
