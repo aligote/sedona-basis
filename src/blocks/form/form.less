@@ -324,6 +324,107 @@
 	}
 }
 
+.form__toggle {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	padding-bottom: 1px;
+	border-radius: @form-control-border-radius;
+	transition-property: box-shadow;
+	transition: @duration @timing-function;
+
+	@media (min-width: @form-breakpoints) {
+	 	flex-wrap: nowrap;
+	 	padding-bottom: 0;
+	 	padding-left: 1px;
+	}
+
+	&:focus-within {
+		.focus(@form-control-focus-outline-color);
+	}
+
+	label {
+	 	width: 100%;
+	 	margin-bottom: -1px;
+
+		@media (min-width: @form-breakpoints) {
+	 		margin-bottom: 0;
+	 		margin-left: -1px;
+	 		width: auto;
+	 		flex-grow: 1;
+	 	}
+	}
+
+	input {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		border: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		white-space: nowrap;
+	}
+
+	input + span {
+		display: block;
+		border-width: @form-control-border-width;
+		border-style: solid;
+		border-color: @form-control-border-color;
+		padding-top: (@form-control-padding-top - @form-control-border-width);
+		padding-right: (@form-control-padding-right - @form-control-border-width);
+		padding-bottom: (@form-control-padding-bottom - @form-control-border-width);
+		padding-left: (@form-control-padding-left - @form-control-border-width);
+	 	white-space: nowrap;
+	 	text-align: center;
+		z-index: 2;
+		position: relative;
+		transition-property: color, background-color, border-color;
+		transition: @duration @timing-function;
+	}
+
+	label:hover input:not([disabled]) + span,
+	input:not([disabled]):focus + span {
+		border-color: @form-control-hover-border-color;
+		cursor: pointer;
+		z-index: 3;
+	}
+
+	input:not(:checked):not([disabled]) + span:active {
+		top: 1px;
+	}
+
+	input:checked + span {
+		background-color: @form-control-hover-border-color;
+		color: @light-primary;
+		border-color: @form-control-hover-border-color;
+		cursor: default;
+		z-index: 4;
+	}
+
+	input[disabled] + span {
+		.disabled();
+		z-index: 1;
+	}
+
+	label:first-of-type span {
+		border-radius: @form-control-border-radius @form-control-border-radius 0 0;
+
+		@media (min-width: @form-breakpoints) {
+			border-radius: @form-control-border-radius 0 0 @form-control-border-radius;
+		}
+	}
+
+	label:last-of-type span {
+		border-radius: 0 0 @form-control-border-radius @form-control-border-radius;
+
+		@media (min-width: @form-breakpoints) {
+			border-radius: 0 @form-control-border-radius @form-control-border-radius 0;
+		}
+	}
+}
+
 .form__before,
 .form__after {
 	color: @form-hint-color;
@@ -335,11 +436,40 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: @form-control-padding-top @form-control-padding-top @form-control-padding-bottom;
+	padding-top: (@form-control-padding-top - @form-control-border-width);
+	padding-right: (@form-control-padding-top - @form-control-border-width);
+	padding-bottom: (@form-control-padding-bottom - @form-control-border-width);
+	padding-left: (@form-control-padding-top - @form-control-border-width);
+	border-width: @form-control-border-width;
+	border-style: solid;
+	border-color: fade(@form-control-border-color, 0);
+	background-color: transparent;
+	transition: @duration @timing-function;
+	transition-property: box-shadow, border-color, color, fill;
+
+	button& {
+		&:focus {
+			.focus(@form-control-focus-outline-color);
+
+			body:not(.no-focus) & {
+				border-color: @form-control-focus-border-color;
+			}
+		}
+
+		&:not([disabled]):hover {
+			color: darken(@form-hint-color, 15%);
+			fill: darken(@form-hint-color, 15%);
+		}
+
+		&:active {
+			top: 1px;
+		}
+	}
 }
 
 .form__before {
 	left: 0;
+	border-radius: @form-control-border-radius;
 
 	& + input {
 		padding-left: (@form-control-height - @form-control-border-width);
@@ -349,6 +479,7 @@
 .form__after {
 	order: 1;
 	right: (@grid-gutter / 4);
+	border-radius: @form-control-border-radius;
 
 	& + input {
 		padding-right: (@form-control-height - @form-control-border-width);
