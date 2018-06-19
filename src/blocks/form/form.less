@@ -1,6 +1,8 @@
 // Form
 //------------------------------------------------------------------------------
 
+// Control
+
 @form-control-color: @base-primary;
 
 @form-control-border-width: 1px;
@@ -37,11 +39,47 @@
 @form-control-danger-focus-border-color: @form-control-danger-hover-border-color;
 @form-control-danger-focus-background-color: @form-control-danger-hover-background-color;
 
+// Check
+
+@form-check-size: (@font-size * 1.375);
+@form-check-marker-color: @form-control-color;
+
+@form-check-border-width: @form-control-border-width;
+@form-check-border-color: @form-control-border-color;
+@form-check-border-radius: @form-control-border-radius;
+
+@form-check-background-color: @form-control-background-color;
+@form-check-background-image: @form-control-background-image;
+@form-check-background-repeat: @form-control-background-repeat;
+@form-check-background-position: @form-control-background-position;
+@form-check-background-size: @form-control-background-size;
+
+@form-check-hover-border-color: darken(@form-check-border-color, 15%);
+@form-check-hover-background-color: @form-check-background-color;
+
+@form-check-focus-outline-color: @form-check-border-color;
+@form-check-focus-border-color: @form-check-hover-border-color;
+@form-check-focus-background-color: @form-check-hover-background-color;
+
+@form-check-danger-border-color: @form-control-danger-border-color;
+@form-check-danger-background-color: @form-check-background-color;
+
+@form-check-danger-hover-border-color: darken(@form-check-danger-border-color, 10%);
+@form-check-danger-hover-background-color: @form-check-danger-background-color;
+
+@form-check-danger-focus-outline-color: @form-check-danger-border-color;
+@form-check-danger-focus-border-color: @form-check-danger-hover-border-color;
+@form-check-danger-focus-background-color: @form-check-danger-hover-background-color;
+
+// Hint
+
 @form-hint-color: @base-hint;
 @form-hint-danger-color: @alert-danger;
 
 @form-hint-font-size: @font-size-smaller;
 @form-hint-line-height: @line-height-smaller;
+
+// Breakpoints
 
 @form-breakpoints: @grid-breakpoints-md;
 
@@ -56,33 +94,39 @@
 .form__group {
 	padding-bottom: @indent;
 
-	@media (min-width: @form-breakpoints) {
-		display: flex;
-		flex-wrap: nowrap;
+	&--columns {
+		@media (min-width: @form-breakpoints) {
+			display: flex;
+			flex-wrap: nowrap;
+		}
 	}
 }
 
 .form__label {
 	margin-bottom: (@indent / 2);
 
-	@media (max-width: (@form-breakpoints - 1px)) {
-		width: 100% !important;
-	}
+	.form__group--columns & {
+		@media (max-width: (@form-breakpoints - 1px)) {
+			width: 100% !important;
+		}
 
-	@media (min-width: @form-breakpoints) {
-		padding-right: (@grid-gutter / 2);
-		margin-top: @form-control-padding-top;
-		margin-bottom: 0;
+		@media (min-width: @form-breakpoints) {
+			padding-right: (@grid-gutter / 2);
+			margin-top: @form-control-padding-top;
+			margin-bottom: 0;
+		}
 	}
 }
 
 .form__fields {
-	@media (min-width: @form-breakpoints) {
-		flex: 1 0 0%;
-	}
+	.form__group--columns & {
+		@media (min-width: @form-breakpoints) {
+			flex: 1 0 0%;
+		}
 
-	@media (max-width: (@form-breakpoints - 1px)) {
-		margin-left: 0 !important;
+		@media (max-width: (@form-breakpoints - 1px)) {
+			margin-left: 0 !important;
+		}
 	}
 }
 
@@ -205,17 +249,31 @@
 	}
 }
 
-.form__checkbox,
-.form__radio {
-	.form__fields .form__line:first-child .form__control:first-child & {
+.form__content {
+	.form__group--columns .form__line:first-child &:first-child {
 		@media (min-width: @form-breakpoints) {
 			margin-top: @form-control-padding-top;
 		}
 	}
 
-	.form__fields .form__line:last-child .form__control:last-child & {
+	.form__group--columns .form__line:last-child &:last-child {
 		@media (min-width: @form-breakpoints) {
-			margin-bottom: @form-control-padding-top;
+			padding-bottom: @form-control-padding-top;
+		}
+	}
+}
+
+.form__checkbox,
+.form__radio {
+	.form__group--columns .form__line:first-child .form__control:first-child & {
+		@media (min-width: @form-breakpoints) {
+			margin-top: @form-control-padding-top;
+		}
+	}
+
+	.form__group--columns .form__line:last-child .form__control:last-child & {
+		@media (min-width: @form-breakpoints) {
+			padding-bottom: @form-control-padding-top;
 		}
 	}
 
@@ -234,34 +292,32 @@
 	input + span {
 		display: block;
 		position: relative;
-		padding-left: (@font-size * 1.375 + @grid-gutter / 4);
+		padding-left: (@form-check-size + @grid-gutter / 4);
 
 		&::before,
 		&::after {
 			position: absolute;
-			top: ((@line-height - @font-size * 1.375) / 2);
+			top: ((@line-height - @form-check-size) / 2);
 			left: 0;
 			content: "";
-			width: (@font-size * 1.375);
-			height: (@font-size * 1.375);
-			border-width: @form-control-border-width;
-			border-style: solid;
-			border-color: @form-control-border-color;
+			width: @form-check-size;
+			height: @form-check-size;
 		}
 
 		&::before {
-			background-color: @form-control-background-color;
-			background-image: @form-control-background-image;
-			background-repeat: @form-control-background-repeat;
-			background-position: @form-control-background-position;
-			background-size: @form-control-background-size;
+			border-width: @form-check-border-width;
+			border-style: solid;
+			border-color: @form-check-border-color;
+			background-color: @form-check-background-color;
+			background-image: @form-check-background-image;
+			background-repeat: @form-check-background-repeat;
+			background-position: @form-check-background-position;
+			background-size: @form-check-background-size;
 			transition-property: box-shadow, border-color, background-color;
 			transition: @duration @timing-function;
 		}
 
 		&::after {
-			border: 0;
-			border-radius: 0;
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
 			background-size: 18px 18px;
@@ -274,11 +330,11 @@
 
 	input[type="checkbox"] + span {
 		&::before {
-			border-radius: @form-control-border-radius;
+			border-radius: @form-check-border-radius;
 		}
 
 		&::after {
-			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-control-color}'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>");
+			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-check-marker-color}'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>");
 
 			background-image: url("data:image/svg+xml, @{icon}");
 		}
@@ -290,16 +346,16 @@
 		}
 
 		&::after {
-			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-control-color}'><circle cx='12' cy='12' r='4'/></svg>");
+			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-check-marker-color}'><circle cx='12' cy='12' r='4'/></svg>");
 
 			background-image: url("data:image/svg+xml, @{icon}");
 		}
 	}
 
 	input:focus + span::before {
-		.focus(@form-control-focus-outline-color);
-		border-color: @form-control-focus-border-color;
-		background-color: @form-control-focus-background-color;
+		.focus(@form-check-focus-outline-color);
+		border-color: @form-check-focus-border-color;
+		background-color: @form-check-focus-background-color;
 	}
 
 	&:hover input:not([disabled]) + span,
@@ -307,8 +363,8 @@
 		cursor: pointer;
 
 		&::before {
-			border-color: @form-control-hover-border-color;
-			background-color: @form-control-hover-background-color;
+			border-color: @form-check-hover-border-color;
+			background-color: @form-check-hover-background-color;
 		}
 	}
 
@@ -321,6 +377,25 @@
 
 	input[disabled] + span {
 		.disabled();
+	}
+
+	.form__control--danger & {
+		input + span::before {
+			border-color: @form-check-danger-border-color;
+			background-color: @form-check-danger-background-color;
+		}
+
+		input:focus + span::before {
+			.focus(@form-check-danger-focus-outline-color);
+			border-color: @form-check-danger-focus-border-color;
+			background-color: @form-check-danger-focus-background-color;
+		}
+
+		&:hover input:not([disabled]) + span::before,
+		input:not([disabled]):focus + span::before {
+			border-color: @form-check-danger-hover-border-color;
+		 	background-color: @form-check-danger-hover-background-color;
+		}
 	}
 }
 
@@ -376,6 +451,13 @@
 		padding-right: (@form-control-padding-right - @form-control-border-width);
 		padding-bottom: (@form-control-padding-bottom - @form-control-border-width);
 		padding-left: (@form-control-padding-left - @form-control-border-width);
+		min-height: @form-control-height;
+		color: @form-control-color;
+		background-color: @form-check-background-color;
+		background-image: @form-check-background-image;
+		background-repeat: @form-check-background-repeat;
+		background-position: @form-check-background-position;
+		background-size: @form-check-background-size;
 	 	white-space: nowrap;
 	 	text-align: center;
 		z-index: 2;
@@ -384,6 +466,7 @@
 		transition: @duration @timing-function;
 	}
 
+	body:not(.no-focus) &:focus-within input + span,
 	label:hover input:not([disabled]) + span,
 	input:not([disabled]):focus + span {
 		border-color: @form-control-hover-border-color;
@@ -396,11 +479,11 @@
 	}
 
 	input:checked + span {
-		background-color: @form-control-hover-border-color;
+		background-color: @form-check-marker-color;
 		color: @light-primary;
-		border-color: @form-control-hover-border-color;
-		cursor: default;
-		z-index: 4;
+		border-color: @form-check-marker-color !important;
+		cursor: default !important;
+		z-index: 4 !important;
 	}
 
 	input[disabled] + span {
@@ -456,10 +539,10 @@
 			}
 		}
 
-		&:not([disabled]):hover {
-			color: darken(@form-hint-color, 15%);
-			fill: darken(@form-hint-color, 15%);
-		}
+		// &:not([disabled]):hover {
+		// 	color: darken(@form-hint-color, 15%);
+		// 	fill: darken(@form-hint-color, 15%);
+		// }
 
 		&:active {
 			top: 1px;
