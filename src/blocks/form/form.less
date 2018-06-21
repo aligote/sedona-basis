@@ -39,37 +39,20 @@
 @form-control-danger-focus-border-color: @form-control-danger-hover-border-color;
 @form-control-danger-focus-background-color: @form-control-danger-hover-background-color;
 
-// Check
+// Accent
 
-@form-check-size: (@font-size * 1.375);
-@form-check-marker-color: @form-control-color;
+@form-accent-color: @light-primary;
 
-@form-check-border-width: @form-control-border-width;
-@form-check-border-color: @form-control-border-color;
-@form-check-border-radius: @form-control-border-radius;
+@form-accent-border-color: @base-secondary;
 
-@form-check-background-color: @form-control-background-color;
-@form-check-background-image: @form-control-background-image;
-@form-check-background-repeat: @form-control-background-repeat;
-@form-check-background-position: @form-control-background-position;
-@form-check-background-size: @form-control-background-size;
+@form-accent-background-color: @form-accent-border-color;
+@form-accent-background-image: none;
+@form-accent-background-repeat: repeat;
+@form-accent-background-position: 0 0;
+@form-accent-background-size: auto auto;
 
-@form-check-hover-border-color: darken(@form-check-border-color, 15%);
-@form-check-hover-background-color: @form-check-background-color;
-
-@form-check-focus-outline-color: @form-check-border-color;
-@form-check-focus-border-color: @form-check-hover-border-color;
-@form-check-focus-background-color: @form-check-hover-background-color;
-
-@form-check-danger-border-color: @form-control-danger-border-color;
-@form-check-danger-background-color: @form-check-background-color;
-
-@form-check-danger-hover-border-color: darken(@form-check-danger-border-color, 10%);
-@form-check-danger-hover-background-color: @form-check-danger-background-color;
-
-@form-check-danger-focus-outline-color: @form-check-danger-border-color;
-@form-check-danger-focus-border-color: @form-check-danger-hover-border-color;
-@form-check-danger-focus-background-color: @form-check-danger-hover-background-color;
+@form-accent-hover-border-color: @form-accent-border-color;
+@form-accent-hover-background-color: lighten(@form-accent-background-color, 20%);
 
 // Hint
 
@@ -82,6 +65,26 @@
 // Breakpoints
 
 @form-breakpoints: @grid-breakpoints-md;
+
+
+
+
+
+// @brand-quaternary: #436986;
+
+// //
+
+// @form-control-color: #0D2537;
+
+// @form-control-border-color: lighten(@brand-quaternary, 31%);
+
+// @form-control-background-color: lighten(@brand-quaternary, 58%);
+
+// @form-accent-border-color: @brand-quaternary;
+
+// @form-hint-color: lighten(@brand-quaternary, 25%);
+
+
 
 
 // Style
@@ -202,6 +205,15 @@
 		}
 	}
 
+	input[type="number"] {
+		appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			appearance: none;
+		}
+	}
+
 	select {
 		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-hint-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
 
@@ -292,27 +304,27 @@
 	input + span {
 		display: block;
 		position: relative;
-		padding-left: (@form-check-size + @grid-gutter / 4);
+		padding-left: (@font-size * 1.375 + @grid-gutter / 4);
 
 		&::before,
 		&::after {
 			position: absolute;
-			top: ((@line-height - @form-check-size) / 2);
+			top: ((@line-height - @font-size * 1.375) / 2);
 			left: 0;
 			content: "";
-			width: @form-check-size;
-			height: @form-check-size;
+			width: (@font-size * 1.375);
+			height: (@font-size * 1.375);
 		}
 
 		&::before {
-			border-width: @form-check-border-width;
+			border-width: @form-control-border-width;
 			border-style: solid;
-			border-color: @form-check-border-color;
-			background-color: @form-check-background-color;
-			background-image: @form-check-background-image;
-			background-repeat: @form-check-background-repeat;
-			background-position: @form-check-background-position;
-			background-size: @form-check-background-size;
+			border-color: @form-control-border-color;
+			background-color: @form-control-background-color;
+			background-image: @form-control-background-image;
+			background-repeat: @form-control-background-repeat;
+			background-position: @form-control-background-position;
+			background-size: @form-control-background-size;
 			transition-property: box-shadow, border-color, background-color;
 			transition: @duration @timing-function;
 		}
@@ -330,11 +342,11 @@
 
 	input[type="checkbox"] + span {
 		&::before {
-			border-radius: @form-check-border-radius;
+			border-radius: @form-control-border-radius;
 		}
 
 		&::after {
-			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-check-marker-color}'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>");
+			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-accent-color}'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/></svg>");
 
 			background-image: url("data:image/svg+xml, @{icon}");
 		}
@@ -346,16 +358,16 @@
 		}
 
 		&::after {
-			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-check-marker-color}'><circle cx='12' cy='12' r='4'/></svg>");
+			@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-accent-color}'><circle cx='12' cy='12' r='4'/></svg>");
 
 			background-image: url("data:image/svg+xml, @{icon}");
 		}
 	}
 
 	input:focus + span::before {
-		.focus(@form-check-focus-outline-color);
-		border-color: @form-check-focus-border-color;
-		background-color: @form-check-focus-background-color;
+		.focus(@form-control-focus-outline-color);
+		border-color: @form-control-focus-border-color;
+		background-color: @form-control-focus-background-color;
 	}
 
 	&:hover input:not([disabled]) + span,
@@ -363,16 +375,32 @@
 		cursor: pointer;
 
 		&::before {
-			border-color: @form-check-hover-border-color;
-			background-color: @form-check-hover-background-color;
+			border-color: @form-control-hover-border-color;
+			background-color: @form-control-hover-background-color;
 		}
 	}
 
 	input:checked + span {
+		&::before {
+			background-color: @form-accent-background-color !important;
+			background-image: @form-accent-background-image !important;
+			background-repeat: @form-accent-background-repeat !important;
+			background-position: @form-accent-background-position !important;
+			background-size: @form-accent-background-size !important;
+			border-color: @form-accent-border-color !important;
+		}
+
 		&::after {
 			opacity: 1;
 			transform: scale3d(1, 1, 1);
 		}
+	}
+
+	input:checked:focus + span::before,
+	&:hover input:not([disabled]):checked + span::before,
+	input:not([disabled]):checked:focus + span::before {
+		border-color: @form-accent-hover-border-color !important;
+		background-color: @form-accent-hover-background-color !important;
 	}
 
 	input[disabled] + span {
@@ -381,20 +409,20 @@
 
 	.form__control--danger & {
 		input + span::before {
-			border-color: @form-check-danger-border-color;
-			background-color: @form-check-danger-background-color;
+			border-color: @form-control-danger-border-color;
+			background-color: @form-control-danger-background-color;
 		}
 
 		input:focus + span::before {
-			.focus(@form-check-danger-focus-outline-color);
-			border-color: @form-check-danger-focus-border-color;
-			background-color: @form-check-danger-focus-background-color;
+			.focus(@form-control-danger-focus-outline-color);
+			border-color: @form-control-danger-focus-border-color;
+			background-color: @form-control-danger-focus-background-color;
 		}
 
 		&:hover input:not([disabled]) + span::before,
 		input:not([disabled]):focus + span::before {
-			border-color: @form-check-danger-hover-border-color;
-		 	background-color: @form-check-danger-hover-background-color;
+			border-color: @form-control-danger-hover-border-color;
+		 	background-color: @form-control-danger-hover-background-color;
 		}
 	}
 }
@@ -453,11 +481,11 @@
 		padding-left: (@form-control-padding-left - @form-control-border-width);
 		min-height: @form-control-height;
 		color: @form-control-color;
-		background-color: @form-check-background-color;
-		background-image: @form-check-background-image;
-		background-repeat: @form-check-background-repeat;
-		background-position: @form-check-background-position;
-		background-size: @form-check-background-size;
+		background-color: @form-control-background-color;
+		background-image: @form-control-background-image;
+		background-repeat: @form-control-background-repeat;
+		background-position: @form-control-background-position;
+		background-size: @form-control-background-size;
 	 	white-space: nowrap;
 	 	text-align: center;
 		z-index: 2;
@@ -479,9 +507,13 @@
 	}
 
 	input:checked + span {
-		background-color: @form-check-marker-color;
-		color: @light-primary;
-		border-color: @form-check-marker-color !important;
+		background-color: @form-accent-background-color;
+		background-image: @form-accent-background-image;
+		background-repeat: @form-accent-background-repeat;
+		background-position: @form-accent-background-position;
+		background-size: @form-accent-background-size;
+		color: @form-accent-color;
+		border-color: @form-accent-border-color !important;
 		cursor: default !important;
 		z-index: 4 !important;
 	}
@@ -519,6 +551,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border-radius: @form-control-border-radius;
 	padding-top: (@form-control-padding-top - @form-control-border-width);
 	padding-right: (@form-control-padding-top - @form-control-border-width);
 	padding-bottom: (@form-control-padding-bottom - @form-control-border-width);
@@ -552,9 +585,8 @@
 
 .form__before {
 	left: 0;
-	border-radius: @form-control-border-radius;
 
-	& + input {
+	& ~ input {
 		padding-left: (@form-control-height - @form-control-border-width);
 	}
 }
@@ -562,9 +594,8 @@
 .form__after {
 	order: 1;
 	right: (@grid-gutter / 4);
-	border-radius: @form-control-border-radius;
 
-	& + input {
+	& ~ input {
 		padding-right: (@form-control-height - @form-control-border-width);
 	}
 }
