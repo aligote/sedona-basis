@@ -5,7 +5,7 @@
     "ion-rangeslider": "^2.2.0",
     "jquery": "^3.3.1",
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.11.1"
+    "sedona-blocks": "^3.11.3"
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
