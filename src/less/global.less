@@ -113,12 +113,13 @@ a {
 
 .btn {
 	position: relative;
-	display: inline-block;
-	min-width: 100px;
+	display: inline-flex;
+	align-items: center;
 	padding: (6px - 1px) (@indent - 1px);
 	line-height: @line-height;
+	min-height: (@line-height + 6px + 6px);
 	vertical-align: middle;
-	text-align: center;
+	justify-content: center;
 	color: @light-primary !important;
 	fill: @light-primary !important;
 	white-space: nowrap;
