@@ -69,6 +69,14 @@
 @form-hint-color: @base-hint;
 @form-hint-danger-color: @alert-danger;
 
+// Placeholder
+
+@form-placeholder-color: @form-hint-color;
+
+// Element
+
+@form-element-color: @form-placeholder-color;
+
 // Darken control
 
 @form-darken-control-color: @light-primary;
@@ -118,6 +126,14 @@
 @form-darken-hint-color: @light-hint;
 @form-darken-hint-danger-color: @alert-danger;
 
+// Darken placeholder
+
+@form-darken-placeholder-color: @form-darken-hint-color;
+
+// Darken element
+
+@form-darken-element-color: @form-darken-placeholder-color;
+
 // Lighten control
 
 @form-lighten-control-color: @dark-primary;
@@ -166,6 +182,14 @@
 
 @form-lighten-hint-color: @dark-hint;
 @form-lighten-hint-danger-color: @alert-danger;
+
+// Lighten placeholder
+
+@form-lighten-placeholder-color: @form-lighten-hint-color;
+
+// Lighten element
+
+@form-lighten-element-color: @form-lighten-placeholder-color;
 
 
 // Style
@@ -330,21 +354,21 @@
 	input,
 	textarea {
 		&::placeholder {
-			color: @form-hint-color;
+			color: @form-placeholder-color;
 		}
 	}
 
 	.form--darken & input,
 	.form--darken & textarea {
 		&::placeholder {
-			color: @form-darken-hint-color;
+			color: @form-darken-placeholder-color;
 		}
 	}
 
 	.form--lighten & input,
 	.form--lighten & textarea {
 		&::placeholder {
-			color: @form-lighten-hint-color;
+			color: @form-lighten-placeholder-color;
 		}
 	}
 
@@ -358,7 +382,7 @@
 	}
 
 	select {
-		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-hint-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
+		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-element-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
 
 		padding-right: (@form-control-height - @form-control-border-width);
 		background-image: url("data:image/svg+xml, @{icon}"), @form-control-background-image;
@@ -372,7 +396,7 @@
 	}
 
 	.form--darken & select {
-		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-darken-hint-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
+		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-darken-element-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
 
 		background-image: url("data:image/svg+xml, @{icon}"), @form-darken-control-background-image;
 		background-repeat: no-repeat, @form-darken-control-background-repeat;
@@ -381,7 +405,7 @@
 	}
 
 	.form--lighten & select {
-		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-lighten-hint-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
+		@icon: escape("<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='@{form-lighten-element-color}'><path d='M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z'/></svg>");
 
 		background-image: url("data:image/svg+xml, @{icon}"), @form-lighten-control-background-image;
 		background-repeat: no-repeat, @form-lighten-control-background-repeat;
@@ -971,8 +995,8 @@
 
 .form__before,
 .form__after {
-	color: @form-hint-color;
-	fill: @form-hint-color;
+	color: @form-element-color;
+	fill: @form-element-color;
 	position: absolute;
 	top: 0;
 	height: @form-control-height;
@@ -993,13 +1017,13 @@
 	transition-property: box-shadow, border-color, color, fill;
 
 	.form--darken & {
-		color: @form-darken-hint-color;
-		fill: @form-darken-hint-color;
+		color: @form-darken-element-color;
+		fill: @form-darken-element-color;
 	}
 
 	.form--lighten & {
-		color: @form-lighten-hint-color;
-		fill: @form-lighten-hint-color;
+		color: @form-lighten-element-color;
+		fill: @form-lighten-element-color;
 	}
 
 	button& {
@@ -1012,8 +1036,8 @@
 		}
 
 		// &:not([disabled]):hover {
-		// 	color: darken(@form-hint-color, 15%);
-		// 	fill: darken(@form-hint-color, 15%);
+		// 	color: darken(@form-element-color, 15%);
+		// 	fill: darken(@form-element-color, 15%);
 		// }
 
 		&:active {
