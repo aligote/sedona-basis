@@ -3,7 +3,7 @@
   "version": "3.4.1",
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.11.1"
+    "sedona-blocks": "^3.11.3"
   },
   "devDependencies": {
     "browser-sync": "^2.24.4",
