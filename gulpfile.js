@@ -46,6 +46,7 @@ const paths = {
 				'node_modules/normalize.css/normalize.css'
 			],
 			main: [
+				'node_modules/sedona-blocks/src/global/global.less',
 				'node_modules/sedona-blocks/src/wysiwyg/wysiwyg.less',
 				'node_modules/sedona-blocks/src/grid/grid.less',
 				'src/less/main.less'
@@ -54,6 +55,7 @@ const paths = {
 		js: {
 			libs: [],
 			app: [
+				'node_modules/sedona-blocks/src/global/global.js',
 				'src/js/app.js'
 			]
 		}
