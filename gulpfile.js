@@ -47,6 +47,7 @@ const paths = {
 				'node_modules/ion-rangeslider/css/ion.rangeSlider.css'
 			],
 			main: [
+				'node_modules/sedona-blocks/src/global/global.less',
 				'node_modules/sedona-blocks/src/scene/scene.less',
 				'node_modules/sedona-blocks/src/wysiwyg/wysiwyg.less',
 				'node_modules/sedona-blocks/src/grid/grid.less',
@@ -60,6 +61,7 @@ const paths = {
 				'node_modules/ion-rangeslider/js/ion.rangeSlider.min.js'
 			],
 			app: [
+				'node_modules/sedona-blocks/src/global/global.js',
 				'src/js/app.js'
 			]
 		}
