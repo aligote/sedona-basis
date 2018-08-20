@@ -351,6 +351,29 @@
 		}
 	}
 
+	input {
+		&::-ms-clear,
+		&::-ms-reveal {
+			display: none;
+		}
+
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration {
+			display: none;
+		}
+	}
+
+	input[type="number"] {
+		appearance: textfield;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			appearance: none;
+		}
+	}
+
 	input,
 	textarea {
 		&::placeholder {
@@ -369,15 +392,6 @@
 	.form--lighten & textarea {
 		&::placeholder {
 			color: @form-lighten-placeholder-color;
-		}
-	}
-
-	input[type="number"] {
-		appearance: textfield;
-
-		&::-webkit-outer-spin-button,
-		&::-webkit-inner-spin-button {
-			appearance: none;
 		}
 	}
 
