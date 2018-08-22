@@ -11,7 +11,8 @@
 @form-control-padding-left: @indent;
 @form-control-padding-right: @form-control-padding-left;
 
-@form-control-height: (@line-height + @form-control-padding-top + @form-control-padding-bottom);
+@form-control-line-height: @line-height;
+@form-control-height: (@form-control-line-height + @form-control-padding-top + @form-control-padding-bottom);
 
 // Breakpoints
 
@@ -492,18 +493,50 @@
 	color: @form-hint-color;
 	fill: @form-hint-color;
 
+	a {
+		.link(@form-hint-color);
+
+		&:hover {
+			.link-hover(@form-hint-color);
+		}
+	}
+
 	&--danger {
 		color: @form-hint-danger-color;
 		fill: @form-hint-danger-color;
+
+		a {
+			.link(@form-hint-danger-color);
+
+			&:hover {
+				.link-hover(@form-hint-danger-color);
+			}
+		}
 	}
 
 	.form--darken & {
 		color: @form-darken-hint-color;
 		fill: @form-darken-hint-color;
 
+		a {
+			.link(@form-darken-hint-color);
+
+			&:hover {
+				.link-hover(@form-darken-hint-color);
+			}
+		}
+
 		&--danger {
 			color: @form-darken-hint-danger-color;
 			fill: @form-darken-hint-danger-color;
+
+			a {
+				.link(@form-darken-hint-danger-color);
+
+				&:hover {
+					.link-hover(@form-darken-hint-danger-color);
+				}
+			}
 		}
 	}
 
@@ -511,9 +544,25 @@
 		color: @form-lighten-hint-color;
 		fill: @form-lighten-hint-color;
 
+		a {
+			.link(@form-lighten-hint-color);
+
+			&:hover {
+				.link-hover(@form-lighten-hint-color);
+			}
+		}
+
 		&--danger {
 			color: @form-lighten-hint-danger-color;
 			fill: @form-lighten-hint-danger-color;
+
+			a {
+				.link(@form-lighten-hint-danger-color);
+
+				&:hover {
+					.link-hover(@form-lighten-hint-danger-color);
+				}
+			}
 		}
 	}
 }
