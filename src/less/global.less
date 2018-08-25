@@ -43,9 +43,9 @@ a {
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	padding: (6px - 1px) (@indent - 1px);
+	padding: (@indent / 2 - 1px) (@indent - 1px);
 	line-height: @line-height;
-	min-height: (@line-height + 6px + 6px);
+	min-height: (@line-height + @indent);
 	vertical-align: middle;
 	justify-content: center;
 	color: @light-primary !important;
