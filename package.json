@@ -1,15 +1,15 @@
 {
   "name": "sedona-basis",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.12.1"
+    "sedona-blocks": "^3.12.4"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.24.7",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csscomb": "^3.0.8",
     "gulp-csso": "^3.0.1",
