@@ -4,7 +4,7 @@
 // Extensions
 //------------------------------------------------------------------------------
 
-@@include('../blocks/form/validate.js')
+@@include('../blocks/form/form.validate.js')
 
 
 // Blocks
