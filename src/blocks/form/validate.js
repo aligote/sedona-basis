@@ -9,17 +9,25 @@ window.sedona.form = {
 			Array.prototype.forEach.call(form, function(el) {
 				el.addEventListener('submit', function(evt) {
 					if (el.querySelector('[required]') !== null) {
-						let element = el.querySelectorAll('[required]');
+						let required = el.querySelectorAll('[required]');
 
-						Array.prototype.forEach.call(element, function(el) {
+						Array.prototype.forEach.call(required, function(el) {
 							sedonaFormValidateRequired(el);
 						});
 					}
 
-					if (el.querySelector('[type="email"]') !== null) {
-						let element = el.querySelectorAll('[type="email"]');
+					if (el.querySelector('[minlength]') !== null) {
+						let minlength = el.querySelectorAll('[minlength]');
 
-						Array.prototype.forEach.call(element, function(el) {
+						Array.prototype.forEach.call(minlength, function(el) {
+							sedonaFormValidateMinLength(el);
+						});
+					}
+
+					if (el.querySelector('[type="email"]') !== null) {
+						let email = el.querySelectorAll('[type="email"]');
+
+						Array.prototype.forEach.call(email, function(el) {
 							sedonaFormValidateEmail(el);
 						});
 					}
@@ -27,8 +35,40 @@ window.sedona.form = {
 					if (el.querySelector('.form__control--danger') !== null) {
 						evt.preventDefault();
 
-						// Переместить к первой ошибке
+						el.querySelector('.form__control--danger:first-child input').scrollIntoView();
+
+						el.querySelector('.form__control--danger:first-child input').focus();
 					}
+
+					evt.preventDefault();
+				});
+			});
+		}
+
+		if (document.querySelector('form[novalidate] [minlength]') !== null) {
+			let minlength = document.querySelectorAll('form[novalidate] [minlength]');
+
+			Array.prototype.forEach.call(minlength, function(el) {
+				el.addEventListener('input', function() {
+					sedonaFormValidateRemoveDanger(el);
+				});
+
+				el.addEventListener('change', function() {
+					sedonaFormValidateMinLength(el);
+				});
+			});
+		}
+
+		if (document.querySelector('form[novalidate] [type="email"]') !== null) {
+			let email = document.querySelectorAll('form[novalidate] [type="email"]');
+
+			Array.prototype.forEach.call(email, function(el) {
+				el.addEventListener('input', function() {
+					sedonaFormValidateRemoveDanger(el);
+				});
+
+				el.addEventListener('change', function() {
+					sedonaFormValidateEmail(el);
 				});
 			});
 		}
@@ -39,9 +79,25 @@ sedona.form.validate();
 
 function sedonaFormValidateRequired(el) {
 	if (el.value.length === 0) {
-		el.parentElement.classList.add('form__control--danger');
+		sedonaFormValidateRemoveDangerHint(el);
+
+		sedonaFormValidateAddDanger(el);
 	} else {
-		el.parentElement.classList.remove('form__control--danger');
+		sedonaFormValidateRemoveDanger(el);
+	}
+}
+
+function sedonaFormValidateMinLength(el) {
+	if (el.value.length > 0) {
+		sedonaFormValidateRemoveDangerHint(el);
+
+		if (el.value.length < el.getAttribute('minlength')) {
+			sedonaFormValidateAddDanger(el);
+
+			sedonaFormValidateAddDangerHint(el, 'Количество символов должно быть не меньше ' + el.getAttribute('minlength'));
+		} else {
+			sedonaFormValidateRemoveDanger(el);
+		}
 	}
 }
 
@@ -50,13 +106,21 @@ function sedonaFormValidateEmail(el) {
 		sedonaFormValidateRemoveDangerHint(el);
 
 		if (!/^([a-z0-9_\-]+\.)*[a-z0-9_\-]+@([a-z0-9\-]*[a-z0-9]\.)+[a-z]{2,10}$/ig.test(el.value)) {
-			el.parentElement.classList.add('form__control--danger');
+			sedonaFormValidateAddDanger(el);
 
 			sedonaFormValidateAddDangerHint(el, 'Введен некорректный адрес электронной почты');
 		} else {
-			el.parentElement.classList.remove('form__control--danger');
+			sedonaFormValidateRemoveDanger(el);
 		}
 	}
+}
+
+function sedonaFormValidateAddDanger(el) {
+	el.parentElement.classList.add('form__control--danger');
+}
+
+function sedonaFormValidateRemoveDanger(el) {
+	el.parentElement.classList.remove('form__control--danger');
 }
 
 function sedonaFormValidateAddDangerHint(el, message) {
