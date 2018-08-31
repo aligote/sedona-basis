@@ -3,7 +3,7 @@
   "version": "3.4.2",
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.12.4"
+    "sedona-blocks": "^3.12.5"
   },
   "devDependencies": {
     "browser-sync": "^2.24.7",
@@ -15,7 +15,7 @@
     "gulp-csso": "^3.0.1",
     "gulp-file-include": "^2.0.1",
     "gulp-html-version": "^1.0.2",
-    "gulp-less": "3.5.0",
+    "gulp-less": "^4.0.1",
     "gulp-sync": "^0.1.4",
     "gulp-typograf": "^3.1.0",
     "gulp-uglify-es": "^1.0.4",
