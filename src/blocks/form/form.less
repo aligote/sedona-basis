@@ -297,6 +297,12 @@
 			background-color: @form-control-hover-background-color;
 		}
 
+		&:-webkit-autofill,
+		&:-moz-autofill,
+		&:autofill {
+			background-color: #ffc !important;
+		}
+
 		&:not(:focus):invalid {
 			box-shadow: none;
 			outline: none;
@@ -721,20 +727,29 @@
 		background-image: url("data:image/svg+xml, @{icon}");
 	}
 
-	body:not(.mobile) & input:focus + span::before {
+	input:focus + span::before {
 		.focus(@form-control-focus-outline-color);
+	}
+
+	body:not(.mobile) & input:focus + span::before {
 		border-color: @form-control-focus-border-color;
 		background-color: @form-control-focus-background-color;
 	}
 
-	body:not(.mobile) .form--darken & input:focus + span::before {
+	.form--darken & input:focus + span::before {
 		.focus(@form-darken-control-focus-outline-color);
+	}
+
+	body:not(.mobile) .form--darken & input:focus + span::before {
 		border-color: @form-darken-control-focus-border-color;
 		background-color: @form-darken-control-focus-background-color;
 	}
 
-	body:not(.mobile) .form--lighten & input:focus + span::before {
+	.form--lighten & input:focus + span::before {
 		.focus(@form-lighten-control-focus-outline-color);
+	}
+
+	body:not(.mobile) .form--lighten & input:focus + span::before {
 		border-color: @form-lighten-control-focus-border-color;
 		background-color: @form-lighten-control-focus-background-color;
 	}
@@ -831,8 +846,11 @@
 			background-color: @form-control-danger-background-color;
 		}
 
-		body:not(.mobile) & input:focus + span::before {
+		input:focus + span::before {
 			.focus(@form-control-danger-focus-outline-color);
+		}
+
+		body:not(.mobile) & input:focus + span::before {
 			border-color: @form-control-danger-focus-border-color;
 			background-color: @form-control-danger-focus-background-color;
 		}
@@ -850,8 +868,11 @@
 			background-color: @form-darken-control-danger-background-color;
 		}
 
-		body:not(.mobile) & input:focus + span::before {
+		input:focus + span::before {
 			.focus(@form-darken-control-danger-focus-outline-color);
+		}
+
+		body:not(.mobile) & input:focus + span::before {
 			border-color: @form-darken-control-danger-focus-border-color;
 			background-color: @form-darken-control-danger-focus-background-color;
 		}
@@ -869,8 +890,11 @@
 			background-color: @form-lighten-control-danger-background-color;
 		}
 
-		body:not(.mobile) & input:focus + span::before {
+		input:focus + span::before {
 			.focus(@form-lighten-control-danger-focus-outline-color);
+		}
+
+		body:not(.mobile) & input:focus + span::before {
 			border-color: @form-lighten-control-danger-focus-border-color;
 			background-color: @form-lighten-control-danger-focus-background-color;
 		}
