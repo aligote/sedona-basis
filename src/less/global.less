@@ -9,7 +9,7 @@ a,
 	transition: @duration @timing-function;
 	transition-property: color, fill, border-bottom-color;
 
-	&:hover {
+	body:not(.mobile) &:hover {
 		.link-hover(@link-primary);
 	}
 }
@@ -43,9 +43,9 @@ a {
 	position: relative;
 	display: inline-flex;
 	align-items: center;
-	padding: (6px - 1px) (@indent - 1px);
+	padding: (@indent / 2 - 1px) (@indent - 1px);
 	line-height: @line-height;
-	min-height: (@line-height + 6px + 6px);
+	min-height: (@line-height + @indent);
 	vertical-align: middle;
 	justify-content: center;
 	color: @light-primary !important;
@@ -62,7 +62,7 @@ a {
 		.focus(fade(@button-primary, 50%));
 	}
 
-	&:not([disabled]):hover {
+	body:not(.mobile) &:not([disabled]):hover {
 		background-color: darken(@button-primary, 10%);
 	}
 
@@ -80,7 +80,7 @@ a {
 			.focus(fade(@base-primary, 20%));
 		}
 
-		&:not([disabled]):hover {
+		body:not(.mobile) &:not([disabled]):hover {
 			background-color: transparent;
 			border-color: fade(@base-primary, 50%) !important;
 		}
@@ -96,7 +96,7 @@ a {
 			.focus(fade(@dark-primary, 20%));
 		}
 
-		&:not([disabled]):hover {
+		body:not(.mobile) &:not([disabled]):hover {
 			background-color: transparent;
 			border-color: fade(@dark-primary, 50%) !important;
 		}
@@ -112,7 +112,7 @@ a {
 			.focus(fade(@light-primary, 20%));
 		}
 
-		&:not([disabled]):hover {
+		body:not(.mobile) &:not([disabled]):hover {
 			background-color: transparent;
 			border-color: fade(@light-primary, 50%) !important;
 		}
