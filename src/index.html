@@ -14,6 +14,30 @@
 	</div>
 </section>
 
+<section class="scene  scene--darken  scene--fill">
+	<div class="grid">
+		<div class="grid__col">
+			<div class="grid__content">
+				@@include('blocks/social/social.html', {
+					"modifier": "social--lighten"
+				})
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="scene  scene--lighten  scene--fill" style="background-color: #eee;">
+	<div class="grid">
+		<div class="grid__col">
+			<div class="grid__content">
+				@@include('blocks/social/social.html', {
+					"modifier": "social--darken"
+				})
+			</div>
+		</div>
+	</div>
+</section>
+
 @@include('inc/page-footer.html')
 
 @@include('inc/doc-end.html')
