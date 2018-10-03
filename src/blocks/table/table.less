@@ -10,6 +10,7 @@
 @table-head-color: @base-secondary;
 
 @table-divider: @base-divider;
+
 @table-tr-hover-background-color: @table-divider;
 
 // Darken
@@ -17,6 +18,7 @@
 @table-darken-head-color: @light-secondary;
 
 @table-darken-divider: @light-divider;
+
 @table-darken-tr-hover-background-color: @table-darken-divider;
 
 // Lighten
@@ -24,6 +26,7 @@
 @table-lighten-head-color: @dark-secondary;
 
 @table-lighten-divider: @dark-divider;
+
 @table-lighten-tr-hover-background-color: @table-lighten-divider;
 
 
@@ -32,10 +35,14 @@
 
 .table {
 	position: relative;
-	display: inline-block;
-	max-width: 100%;
-	vertical-align: top;
+	margin-right: -(@grid-gutter / 2);
+	margin-left: -(@grid-gutter / 2);
 	margin-bottom: @indent;
+
+	@media (min-width: @grid-breakpoints-sm) {
+		margin-right: auto;
+		margin-left: auto;
+	}
 
 	&:last-child {
 		margin-bottom: 0;
@@ -85,8 +92,15 @@
 		opacity: 1;
 	}
 
-	&--block {
-		display: block;
+	&--responsive {
+		@media (max-width: (@grid-breakpoints-sm - 1px)) {
+			white-space: normal !important;
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
 	}
 }
 
@@ -94,10 +108,22 @@
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 
+	.table--responsive & {
+		@media (max-width: (@grid-breakpoints-sm - 1px)) {
+			overflow-x: visible;
+		}
+	}
+
 	table {
 		width: 100%;
 		border-collapse: collapse;
 		border-spacing: 0;
+
+		.table--responsive & {
+			@media (max-width: (@grid-breakpoints-sm - 1px)) {
+				display: block;
+			}
+		}
 	}
 
 	th,
@@ -108,6 +134,43 @@
 		border-bottom: 1px solid @table-divider;
 		text-align: left;
 
+		@media (min-width: @grid-breakpoints-sm) {
+			body.mobile & {
+				&:first-child {
+					padding-left: 0;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+
+		.table--responsive & {
+			@media (max-width: (@grid-breakpoints-sm - 1px)) {
+				text-align: left !important;
+				white-space: normal !important;
+				display: block;
+				border-bottom-width: 0;
+				padding-top: 0;
+
+				&:first-child {
+					padding-top: @indent;
+				}
+
+				&:before {
+					display: block;
+					content: attr(data-title);
+					font-size: @table-head-font-size;
+					font-weight: @table-head-font-weight;
+					font-family: @table-head-font-family;
+					line-height: @table-head-line-height;
+					color: @table-head-color;
+					fill: @table-head-color;
+				}
+			}
+		}
+
 		.table--darken & {
 			border-color: @table-darken-divider;
 		}
@@ -115,14 +178,6 @@
 		.table--lighten & {
 			border-color: @table-lighten-divider;
 		}
-
-		// &:first-child {
-		// 	padding-left: 0;
-		// }
-
-		// &:last-child {
-		// 	padding-right: 0;
-		// }
 	}
 
 	th {
@@ -147,28 +202,55 @@
 		}
 	}
 
-	tbody tr {
-		background-color: fade(@table-tr-hover-background-color, 0);
-		transition-property: background-color;
-		transition: @duration @timing-function;
-
-		&:hover {
-			background-color: fade(@table-tr-hover-background-color, 100%);
+	thead {
+		.table--responsive & {
+			@media (max-width: (@grid-breakpoints-sm - 1px)) {
+				display: none;
+			}
 		}
+	}
 
-		.table--darken & {
-			border-color: fade(@table-darken-tr-hover-background-color, 0);
-
-			&:hover {
-				background-color: fade(@table-darken-tr-hover-background-color, 100%);
+	tbody {
+		.table--responsive & {
+			@media (max-width: (@grid-breakpoints-sm - 1px)) {
+				display: block;
 			}
 		}
 
-		.table--lighten & {
-			border-color: fade(@table-lighten-tr-hover-background-color, 0);
+		tr {
+			background-color: fade(@table-tr-hover-background-color, 0);
+			transition-property: background-color;
+			transition: @duration @timing-function;
 
-			&:hover {
-				background-color: fade(@table-lighten-tr-hover-background-color, 100%);
+			.table--responsive & {
+				@media (max-width: (@grid-breakpoints-sm - 1px)) {
+					display: block;
+					border-bottom: 1px solid @table-divider;
+
+					&:first-child {
+						border-top: 1px solid @table-divider;
+					}
+				}
+			}
+
+			body:not(.mobile) &:hover {
+				background-color: fade(@table-tr-hover-background-color, 100%);
+			}
+
+			.table--darken & {
+				border-color: fade(@table-darken-tr-hover-background-color, 0);
+
+				body:not(.mobile) &:hover {
+					background-color: fade(@table-darken-tr-hover-background-color, 100%);
+				}
+			}
+
+			.table--lighten & {
+				border-color: fade(@table-lighten-tr-hover-background-color, 0);
+
+				body:not(.mobile) &:hover {
+					background-color: fade(@table-lighten-tr-hover-background-color, 100%);
+				}
 			}
 		}
 	}
