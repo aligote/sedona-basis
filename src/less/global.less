@@ -11,6 +11,11 @@ a,
 	transition: @duration @timing-function;
 	transition-property: color, fill, border-bottom-color;
 
+	&[aria-label] {
+		border-bottom: 0;
+		text-decoration: none;
+	}
+
 	body:not(.mobile) &:hover {
 		.link-hover(@link-primary);
 	}
