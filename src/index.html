@@ -8,7 +8,33 @@
 	<div class="grid">
 		<div class="grid__col  grid__col--md-10  grid__col--lg-9  grid__col--xl-8">
 			<div class="grid__content">
-				@@include('blocks/file/file.html')
+				@@include('blocks/file/file.html', {
+					"modifier": ""
+				})
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="scene  scene--darken  scene--fill">
+	<div class="grid">
+		<div class="grid__col  grid__col--md-10  grid__col--lg-9  grid__col--xl-8">
+			<div class="grid__content">
+				@@include('blocks/file/file.html', {
+					"modifier": "form--darken"
+				})
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="scene  scene--lighten  scene--fill" style="background-color: #eee;">
+	<div class="grid">
+		<div class="grid__col  grid__col--md-10  grid__col--lg-9  grid__col--xl-8">
+			<div class="grid__content">
+				@@include('blocks/file/file.html', {
+					"modifier": "form--lighten"
+				})
 			</div>
 		</div>
 	</div>
