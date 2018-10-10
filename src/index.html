@@ -8,7 +8,9 @@
 	<div class="grid">
 		<div class="grid__col  grid__col--md-10  grid__col--lg-9  grid__col--xl-8">
 			<div class="grid__content">
-				@@include('blocks/range/range.html')
+				@@include('blocks/range/range.html', {
+					"modifier": ""
+				})
 			</div>
 		</div>
 	</div>
@@ -26,7 +28,7 @@
 	</div>
 </section>
 
-<section class="scene  scene--lighter  scene--fill">
+<section class="scene  scene--lighter  scene--fill" style="background-color: #eee;">
 	<div class="grid">
 		<div class="grid__col  grid__col--md-10  grid__col--lg-9  grid__col--xl-8">
 			<div class="grid__content">
