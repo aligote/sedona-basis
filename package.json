@@ -1,21 +1,22 @@
 {
   "name": "sedona-basis",
-  "version": "3.4.1",
+  "version": "3.4.2",
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.11.1"
+    "sedona-blocks": "^3.13.2",
+    "swiper": "^4.4.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.24.4",
+    "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csscomb": "^3.0.8",
     "gulp-csso": "^3.0.1",
     "gulp-file-include": "^2.0.1",
-    "gulp-html-version": "^1.0.1",
-    "gulp-less": "3.5.0",
+    "gulp-html-version": "^1.0.2",
+    "gulp-less": "^4.0.1",
     "gulp-sync": "^0.1.4",
     "gulp-typograf": "^3.1.0",
     "gulp-uglify-es": "^1.0.4",

@@ -43,9 +43,11 @@ const paths = {
 		],
 		css: {
 			libs: [
-				'node_modules/normalize.css/normalize.css'
+				'node_modules/normalize.css/normalize.css',
+				'node_modules/swiper/dist/css/swiper.min.css'
 			],
 			main: [
+				'node_modules/sedona-blocks/src/global/global.less',
 				'node_modules/sedona-blocks/src/scene/scene.less',
 				'node_modules/sedona-blocks/src/wysiwyg/wysiwyg.less',
 				'node_modules/sedona-blocks/src/grid/grid.less',
@@ -53,8 +55,11 @@ const paths = {
 			]
 		},
 		js: {
-			libs: [],
+			libs: [
+				'node_modules/swiper/dist/js/swiper.min.js'
+			],
 			app: [
+				'node_modules/sedona-blocks/src/global/global.js',
 				'src/js/app.js'
 			]
 		}
