@@ -3,10 +3,10 @@
   "version": "3.4.2",
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "sedona-blocks": "^3.13.0"
+    "sedona-blocks": "^3.14.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.0",
+    "browser-sync": "^2.26.3",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
